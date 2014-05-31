@@ -4,11 +4,34 @@ require 'lib/gachi_view'
 
 require 'app/models/user'
 
+# configure
 GachiView.template_base_path = File.join( Dir.pwd, 'app', 'views' )
 
-extend GachiView::Renderer
+# = TODO: Mock controller class
+class GachiController
 
-user = User.find 1
-p user
+  include GachiView::Renderer
 
-print render "users/index.html.erb", { user: user }
+  def index
+    @user = User.find 1
+
+    print render "users/index.html.erb"
+  end
+
+  # TODO: protected method
+  def render(path)
+    # processing parameters
+    assign_attributes = {}.tap do |attr|
+      self.instance_variables.each do |sym|
+        attr.store sym.to_s.gsub(/@/,''), self.instance_variable_get(sym)
+      end
+    end
+     
+    super path, assign_attributes
+  end
+end
+
+
+controller = GachiController.new
+
+controller.index
