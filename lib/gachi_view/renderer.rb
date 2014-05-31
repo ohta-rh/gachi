@@ -24,15 +24,15 @@ module GachiView
     end
 
 
+    # = Binding erb
     class Binding
 
+      # == Initialize binding object
       def initialize(path_to_template, assign_attributes)
         @path_to_template = path_to_template
 
-        assign_attributes.each do 
-          params.each do |key,val|
-             instance_variable_set("@#{key}", val)
-           end
+        assign_attributes.each do |key, value|
+          instance_variable_set("@#{key.to_s}", value)
         end
 
         @binding = binding

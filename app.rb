@@ -8,5 +8,7 @@ GachiView.template_base_path = File.join( Dir.pwd, 'app', 'views' )
 
 extend GachiView::Renderer
 
+user = User.find 1
+p user
 
-render "users/index.html.erb", {}
+print render "users/index.html.erb", { user: user }
