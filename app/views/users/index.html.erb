@@ -1,12 +1,19 @@
 <html>
-  <table>
-    <tr>
-      <th>ID</th>
-    </tr>
+  <body>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>password</th>
+        <th>email</th>
+      </tr>
 
-    <tr>
-      <td><%= @user.id %></td>
-    </tr>
-  </table>
-
+      <tr>
+        <td><%= @user.id %></td>
+        <td><%= @user.name %></td>
+        <td><%= @user.password %></td>
+        <td><%= @user.email %></td>
+      </tr>
+    </table>
+  </body>
 </html>
