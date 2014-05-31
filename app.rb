@@ -4,3 +4,5 @@ require 'lib/gachi_view'
 
 require 'app/models/user'
 
+GachiView.template_path = Dir.pwd
+p GachiView.template_path

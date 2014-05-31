@@ -1,6 +1,17 @@
 # = Rendering Gachi erb
 #
 module GachiView
+
+  class << self
+    def template_path=(path_to_template)
+      @template_path = path_to_template
+    end
+
+    def template_path
+      @template_path
+    end
+  end
+
   module Renderer
 
     # = rendering assigns attribute by gachi record
@@ -14,5 +25,4 @@ module GachiView
       end
     end
   end
-
 end
