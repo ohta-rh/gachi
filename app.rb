@@ -15,7 +15,7 @@ class GachiController
   def index
     @user = User.find 1
 
-    print render "users/index.html.erb"
+    render "users/index.html.erb"
   end
 
   # TODO: protected method
@@ -27,7 +27,7 @@ class GachiController
       end
     end
      
-    super path, assign_attributes
+    print super path, assign_attributes
   end
 end
 
